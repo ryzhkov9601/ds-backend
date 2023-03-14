@@ -1,3 +1,11 @@
+# Проверка выполнения задания
+```bash
+docker build -t ds-backend .
+./run.sh
+curl -v http://localhost:8080/readNumberById?id=10022
+curl -v "http://localhost:8080/readArray?id=10022&id=9965"
+```
+
 # Репозиторий к семинару "Основы backend-разработки"
 
 ## Что нужно сделать перед семинаром?
