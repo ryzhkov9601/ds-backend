@@ -14,7 +14,7 @@ class PlateClient:
     def __init__(self, url = 'http://127.0.0.1:8080', image_storage_url='http://51.250.83.169:7878/images'):
         self.url = url
         self.image_storage_url = image_storage_url
-        self.valid_ids = [10022, 9965]
+        self.valid_ids = ['10022', '9965']
 
     def read_number(self, im):
         res = requests.post(
@@ -26,7 +26,7 @@ class PlateClient:
         return res.json()
     
     def read_number_by_id(self, image_id):
-        if int(image_id) not in self.valid_ids:
+        if image_id not in self.valid_ids:
             raise MyException('invalid id of image', 400)
         try:
             response = requests.get(
@@ -54,8 +54,8 @@ if __name__ == '__main__':
         res = client.read_number(im)
     print(res)
 
-    res = client.read_number_by_id(10022)
+    res = client.read_number_by_id('10022')
     print(res)
 
-    res = client.read_array([10022, 9965])
+    res = client.read_array(['10022', '9965'])
     print(res)
